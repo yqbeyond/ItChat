@@ -124,3 +124,7 @@ def test_connect(retryTime=5):
             if i == retryTime - 1:
                 logger.error(traceback.format_exc())
                 return False
+
+def contact_deep_copy(core, contact):
+    with core.storageClass.updateLock:
+        return copy.deepcopy(contact)
